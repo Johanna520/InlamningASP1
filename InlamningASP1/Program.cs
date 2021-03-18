@@ -8,6 +8,13 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+//TODOS imorogn fredag :   
+// innan jag går vidare...
+// Steppa genom koden.
+// Kommentera vad som sker
+// Läs på om det jag inte kan så bra, ex await och async.
+// Se björns klipp från handleningen. 
+// försök göra uppgift 5-6 innan söndag!
 
 namespace InlamningASP1
 {
