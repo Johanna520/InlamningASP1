@@ -14,7 +14,7 @@ Genom .UseStartup<Startup>(); metoden i program.cs använder vi startup Klassen 
  
  * ConfigureServices()
  * 
-ConfigureServices kallas i byggfasen .Build() i Program.cs. 
+ConfigureServices kallas i .Build() i Program.cs. 
 I ConfigureServices() metoden kan man registrera sina klasser (services) med en inbyggd IoC container.
 IoC container = en inbyggd container som finns i ASP.NET Core framework.
 Efter att ha registrerat klasserna kan man använde dem överallt i applikationen, 
@@ -25,7 +25,7 @@ Här inkluderas IServiceCollection parameter som registrerar services i IoC cont
  
  * Configure()
  * 
-Denna metod måste finnas i Startup.cs
+Denna metod måste finnas i Startup.cs.
 Configure() körs direkt efter att vi kallat på .Run() i Program.cs. 
 Här kan man konfigurera applikation-requestens pipline genom att använda IApplicationBuilder klassen.
 Genom denna klass kommer man åt den inbyggda IoC containern.
