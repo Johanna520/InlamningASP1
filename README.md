@@ -1,9 +1,7 @@
 
 # Inlämningsuppgift ASP .NET Core
 
- As the name suggests, it is executed first when the application starts.
 
-The startup class can be configured using UseStartup<T>() method at the time of configuring the host in the Main() method of Program class as shown below.
 
 ### ASP. NET  
  
