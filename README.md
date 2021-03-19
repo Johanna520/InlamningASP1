@@ -1,15 +1,25 @@
 
-# InlamningASP1
-Inlämningsuppgift 1 i ASP .NET Core
+# Inlämningsuppgift ASP .NET Core
 
- För Asp.Net förklaringen är det fokus på det som sker i
- Startup.cs : 
- wwwroot : 
- Razor språket : 
-• För Razor Pages så handlar det bara att beskriva de två filerna. 
-Content Page : 
-Page Model : 
-• För MVC så är det skillnaden mellan 
-Model : 
-View : 
-Controller : 
+
+
+### ASP. NET  
+ 
+ ##### Startup.cs 
+
+ ##### wwwroot
+ wwwroot är web root foldern, denna folder innerhåller statiska filer. Här finns exempelvis javascirpt, html, images och css-kod etc.
+ Att filerna är statiska betyder att de inte behvöer skapas/förändras av en server innan de skickas ut till klienten. 
+
+          
+ ##### Razor språket 
+
+            
+### Razor Pages
+##### Content Page
+##### Page Model 
+
+### MVC
+#### Model 
+#### View 
+#### Controller 
