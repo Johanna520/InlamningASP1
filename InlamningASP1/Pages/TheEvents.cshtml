@@ -6,11 +6,8 @@
 }
 
 <h1>TheEvents</h1>
+<!-- SE ÖVER ACCORDIO! -->
 
-
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
 
         @foreach (var item in Model.Event)
         {
@@ -20,7 +17,7 @@
                     <div class="card-header" id="headingOne">
                         <h2 class="mb-0">
                             <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                            @Html.DisplayFor(modelItem => item.Title) 
+                                @Html.DisplayNameFor(model => model.Event[0].Title)  @Html.DisplayFor(modelItem => item.Title)
                             </button>
                         </h2>
                     </div>
