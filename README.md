@@ -5,25 +5,23 @@
 
 ### ASP. NET  
  
- ##### Startup.cs 
+ #### Startup.cs 
 ASP.NET applikationen måste innehålla en startup klass (klassnamnet kan bytas ut). Startup.cs körs först när applikationen startar. 
 Genom .UseStartup<Startup>(); metoden i program.cs använder vi startup Klassen och dess metoder. Startup innehåller två public metoder:
 
 
 
  
- * ConfigureServices()
+###### * ConfigureServices()
  
-ConfigureServices kallas i .Build() i Program.cs. 
-I ConfigureServices() metoden kan man registrera sina klasser (services) med en inbyggd IoC container.
-IoC container = en inbyggd container som finns i ASP.NET Core framework.
-Efter att ha registrerat klasserna kan man använde dem överallt i applikationen, 
-detta gör man genom att inkludera den i en parametern av en konstruktor i den klass du vill använda den.  
+ConfigureServices kallas i .Build() i Program.cs. I ConfigureServices() metoden kan man registrera sina klasser (services) med en inbyggd IoC container. IoC container = även kallad för DI (Dependency Inejection), 
+är en inbyggd container som finns i ASP.NET Core framework. Efter att ha registrerat services kan man använde dem överallt i applikationen, detta gör man genom att inkludera den i en parameter av en konstruktor i den klass där du vill använda den.
 En service är alltså en klass som används i en annan klass. 
-Här inkluderas IServiceCollection parameter som registrerar services i IoC containern.
+Här inkluderas även IServiceCollection parametern som registrerar services i IoC containern.
+
 
  
-* Configure()
+######* Configure()
  
 Denna metod måste finnas i Startup.cs.
 Configure() körs direkt efter att vi kallat på .Run() i Program.cs. 
@@ -39,15 +37,21 @@ tills en http 200 OK genereras och skickas tillbaka till klienten.
 
 
 
- ##### wwwroot
+ #### wwwroot
  
 wwwroot är web root foldern, denna folder innehåller statiska filer. Här finns exempelvis javascirpt, html, images och css-kod etc. Att filerna är statiska betyder att de inte behöver skapas/förändras av en server innan de skickas ut till klienten.
 
  
  #### Program.cs
-Här startar programmet
+Här börjat allt, i Main, när applikationen exekverar. 
+Här skapar vi en host (WebHost), .Build(),  för applikationen.  
+Därefter kallas .Run(), genom att kalla på .Run() fortsätter mainprocessen att arbeta inuti WebHost. 
+
+CreatDefualtBuilder metoden skapar en instans av WebHostBuilder och skapar Kestrel. Kestrel är webservern som inkluderar och aktiverar ASP.NET Core projekts temlpates. 
+Här kallas även ConfigureAppConfiguration() för att bland annat ladda konfiguering från appsettings.json filer.
+
           
- ##### Razor språket 
+ #### Razor språket 
 
 Razorkod är ett eget språk, där man blandar html och c# språk. 
 Filändelsen är .cshtml och man använder mycket @ i razorkod, detta för att koppla samman c#-koden med html.  
@@ -56,8 +60,8 @@ Razor finns både i MVC och Razor Pages.
 
             
 ### Razor Pages
-##### Content Page
-##### Page Model 
+#### Content Page
+#### Page Model 
 
 ### MVC
 #### Model 
