@@ -13,7 +13,7 @@ Genom .UseStartup<Startup>(); metoden i program.cs använder vi startup Klassen 
 
  
  * ConfigureServices()
- * 
+ 
 ConfigureServices kallas i .Build() i Program.cs. 
 I ConfigureServices() metoden kan man registrera sina klasser (services) med en inbyggd IoC container.
 IoC container = en inbyggd container som finns i ASP.NET Core framework.
@@ -23,8 +23,8 @@ En service är alltså en klass som används i en annan klass.
 Här inkluderas IServiceCollection parameter som registrerar services i IoC containern.
 
  
- * Configure()
- * 
+* Configure()
+ 
 Denna metod måste finnas i Startup.cs.
 Configure() körs direkt efter att vi kallat på .Run() i Program.cs. 
 Här kan man konfigurera applikation-requestens pipline genom att använda IApplicationBuilder klassen.
@@ -48,6 +48,11 @@ wwwroot är web root foldern, denna folder innehåller statiska filer. Här finn
 Här startar programmet
           
  ##### Razor språket 
+
+Razorkod är ett eget språk, där man blandar html och c# språk. 
+Filändelsen är .cshtml och man använder mycket @ i razorkod, detta för att koppla samman c#-koden med html.  
+Varje razorkod-fil har en C#-fil, en c# klass. 
+Razor finns både i MVC och Razor Pages.
 
             
 ### Razor Pages
