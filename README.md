@@ -21,7 +21,7 @@ Här inkluderas även IServiceCollection parametern som registrerar services i I
 
 
  
-######* Configure()
+###### * Configure()
  
 Denna metod måste finnas i Startup.cs.
 Configure() körs direkt efter att vi kallat på .Run() i Program.cs. 
