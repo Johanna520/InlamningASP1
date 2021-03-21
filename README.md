@@ -31,7 +31,7 @@ För att definiera ett request pipline användes Middleware komponenter. Dessa k
 Man väljer och använder endast de middleware komponenter som är nödvändiga i din applikation, detta för att öka prestandan i applikationen. 
 Det är även viktigt att veta vilken ordning metoderna kallas på. 
 Man kan se middleware som en trappa, där man börjar uppifrån där ett http request kommer in från klienten (webHost) för att sedan ta sig nedåt
-när vi når rätt razer pages (Endpoints) för ändamålet. Därefter går vi upp för trappan igen - Razer Page skapar ett html svar som skickas upp genom middleware stegen
+när vi når rätt Endpoints för ändamålet. Därefter går vi upp för trappan igen - Razer Page / MVC skapar ett html svar som skickas upp genom middleware stegen
 tills en http 200 OK genereras och skickas tillbaka till klienten.
 
 
@@ -61,7 +61,17 @@ Razor finns både i MVC och Razor Pages.
             
 ### Razor Pages
 #### Content Page
+
+Hör ihop med de filnamn som slutar på .cshtml. Content Page är alltså en sida med razor kod. 
+Här är all data klar och används för att presentera sidan. 
+Här sköter vi det visuella, UI
+Content Page har razor kod och har oftast en refereras kallad för Model som pekar på Page Model objektet. 
+
 #### Page Model 
+
+Hör samman med de filnamn som slutar på .cs. I Page Model skrivs endast c#-kod. 
+Page Model sköter mycket logik och kommunicerar med annan kod och services. 
+Page Model har publika metoder, kallas för Page Handlers. OnGet och OnPost är exempel på två sådana metoder. 
 
 ### MVC
 #### Model 
