@@ -65,5 +65,14 @@ Razor finns både i MVC och Razor Pages.
 
 ### MVC
 #### Model 
+Här beskrivs datans struktur som public properties.
+Alla model klasser måste skapas inuti Model mappen.
+Model klassen kan användas i view för att fylla i datan, 
+Och även för att skicka data till controller. 
+
 #### View 
+View är en Razor .htmlcs fil.
+View används för att visa data, detta genom att använda sig av objekt från model klass. 
+
 #### Controller 
+Controller hantera inkommande url begäran. Controller är en klass som innehåller public metoder som kallas för Action metoder. Dessa hantera inkommande browserbegäran, hämtar nödvändig model data och returnerar lämplig respons. Varje controllers klassnamn måste sluta med ”Controller” samt vara finnas  i Controller foldern. 
