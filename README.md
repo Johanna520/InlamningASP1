@@ -5,26 +5,24 @@
 
 ### ASP. NET  
  
- ##### Startup.cs 
+ #### Startup.cs 
 ASP.NET applikationen måste innehålla en startup klass (klassnamnet kan bytas ut). Startup.cs körs först när applikationen startar. 
 Genom .UseStartup<Startup>(); metoden i program.cs använder vi startup Klassen och dess metoder. Startup innehåller två public metoder:
 
 
 
  
- * ConfigureServices()
- * 
-ConfigureServices kallas i .Build() i Program.cs. 
-I ConfigureServices() metoden kan man registrera sina klasser (services) med en inbyggd IoC container.
-IoC container = en inbyggd container som finns i ASP.NET Core framework.
-Efter att ha registrerat klasserna kan man använde dem överallt i applikationen, 
-detta gör man genom att inkludera den i en parametern av en konstruktor i den klass du vill använda den.  
+###### * ConfigureServices()
+ 
+ConfigureServices kallas i .Build() i Program.cs. I ConfigureServices() metoden kan man registrera sina klasser (services) med en inbyggd IoC container. IoC container = även kallad för DI (Dependency Inejection), 
+är en inbyggd container som finns i ASP.NET Core framework. Efter att ha registrerat services kan man använde dem överallt i applikationen, detta gör man genom att inkludera den i en parameter av en konstruktor i den klass där du vill använda den.
 En service är alltså en klass som används i en annan klass. 
-Här inkluderas IServiceCollection parameter som registrerar services i IoC containern.
+Här inkluderas även IServiceCollection parametern som registrerar services i IoC containern.
+
 
  
- * Configure()
- * 
+###### * Configure()
+ 
 Denna metod måste finnas i Startup.cs.
 Configure() körs direkt efter att vi kallat på .Run() i Program.cs. 
 Här kan man konfigurera applikation-requestens pipline genom att använda IApplicationBuilder klassen.
@@ -33,28 +31,58 @@ För att definiera ett request pipline användes Middleware komponenter. Dessa k
 Man väljer och använder endast de middleware komponenter som är nödvändiga i din applikation, detta för att öka prestandan i applikationen. 
 Det är även viktigt att veta vilken ordning metoderna kallas på. 
 Man kan se middleware som en trappa, där man börjar uppifrån där ett http request kommer in från klienten (webHost) för att sedan ta sig nedåt
-när vi når rätt razer pages (Endpoints) för ändamålet. Därefter går vi upp för trappan igen - Razer Page skapar ett html svar som skickas upp genom middleware stegen
+när vi når rätt Endpoints för ändamålet. Därefter går vi upp för trappan igen - Razer Page / MVC skapar ett html svar som skickas upp genom middleware stegen
 tills en http 200 OK genereras och skickas tillbaka till klienten.
 
 
 
 
- ##### wwwroot
+ #### wwwroot
  
 wwwroot är web root foldern, denna folder innehåller statiska filer. Här finns exempelvis javascirpt, html, images och css-kod etc. Att filerna är statiska betyder att de inte behöver skapas/förändras av en server innan de skickas ut till klienten.
 
  
  #### Program.cs
-Här startar programmet
+Här börjat allt, i Main, när applikationen exekverar. 
+Här skapar vi en host (WebHost), .Build(),  för applikationen.  
+Därefter kallas .Run(), genom att kalla på .Run() fortsätter mainprocessen att arbeta inuti WebHost. 
+
+CreatDefualtBuilder metoden skapar en instans av WebHostBuilder och skapar Kestrel. Kestrel är webservern som inkluderar och aktiverar ASP.NET Core projekts temlpates. 
+Här kallas även ConfigureAppConfiguration() för att bland annat ladda konfiguering från appsettings.json filer.
+
           
- ##### Razor språket 
+ #### Razor språket 
+
+Razorkod är ett eget språk, där man blandar html och c# språk. 
+Filändelsen är .cshtml och man använder mycket @ i razorkod, detta för att koppla samman c#-koden med html.  
+Varje razorkod-fil har en C#-fil, en c# klass. 
+Razor finns både i MVC och Razor Pages.
 
             
 ### Razor Pages
-##### Content Page
-##### Page Model 
+#### Content Page
+
+Hör ihop med de filnamn som slutar på .cshtml. Content Page är alltså en sida med razor kod. 
+Här är all data klar och används för att presentera sidan. 
+Här sköter vi det visuella, UI
+Content Page har razor kod och har oftast en refereras kallad för Model som pekar på Page Model objektet. 
+
+#### Page Model 
+
+Hör samman med de filnamn som slutar på .cs. I Page Model skrivs endast c#-kod. 
+Page Model sköter mycket logik och kommunicerar med annan kod och services. 
+Page Model har publika metoder, kallas för Page Handlers. OnGet och OnPost är exempel på två sådana metoder. 
 
 ### MVC
 #### Model 
+Här beskrivs datans struktur som public properties.
+Alla model klasser måste skapas inuti Model mappen.
+Model klassen kan användas i view för att fylla i datan, 
+Och även för att skicka data till controller. 
+
 #### View 
+View är en Razor .htmlcs fil.
+View används för att visa data, detta genom att använda sig av objekt från model klass. 
+
 #### Controller 
+Controller hantera inkommande url begäran. Controller är en klass som innehåller public metoder som kallas för Action metoder. Dessa hantera inkommande browserbegäran, hämtar nödvändig model data och returnerar lämplig respons. Varje controllers klassnamn måste sluta med ”Controller” samt vara finnas  i Controller foldern. 
