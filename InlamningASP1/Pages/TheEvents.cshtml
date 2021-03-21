@@ -5,49 +5,48 @@
     ViewData["Title"] = "TheEvents";
 }
 
-<h1>TheEvents</h1>
+<h1>Events</h1>
+<br />
+<br />
 <!-- SE ÖVER ACCORDIO! -->
+@{int i = 0;}
 
-
-        @foreach (var item in Model.Event)
-        {
-
-            <div class="accordion" id="accordionExample">
-                <div class="card">
-                    <div class="card-header" id="headingOne">
-                        <h2 class="mb-0">
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                @Html.DisplayNameFor(model => model.Event[0].Title)  @Html.DisplayFor(modelItem => item.Title)
-                            </button>
-                        </h2>
-                    </div>
-
-                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-                        <div class="card-body">
-                            @Html.DisplayNameFor(model => model.Event[0].Description) @Html.DisplayFor(modelItem => item.Description)
-                            <br />
-
-                            @Html.DisplayNameFor(model => model.Event[0].Place) @Html.DisplayFor(modelItem => item.Place)
-                            <br />
-                            @Html.DisplayNameFor(model => model.Event[0].Adress) @Html.DisplayFor(modelItem => item.Adress)
-                            <br />
-
-                            @Html.DisplayNameFor(model => model.Event[0].Date) @Html.DisplayFor(modelItem => item.Date)
-                            <br />
-
-                            @Html.DisplayNameFor(model => model.Event[0].SpotsAvailable) @Html.DisplayFor(modelItem => item.SpotsAvailable)
-                            <br />
-                           | <a asp-page="./Details" asp-route-id="@item.EventId">Details</a> | <a asp-page="./Delete" asp-route-id="@item.EventId">Delete</a>
-
-
-
-                        </div>
-                    </div>
-                </div>
+@foreach (var item in Model.Event)
+{
+    <div class="panel-group" id="accordion_@i">
+        <div class="panel panel-default" id="panel_@i">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-target="#collapseOne_@i" href="#collapseOne_@i">
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </a>
+                </h4> <button>Join</button>
+                <br />
+                <br />
 
             </div>
-   
-             
-            
-        }
+            <div id="collapseOne_@i" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    @Html.DisplayNameFor(model => model.Event[0].Description) : @Html.DisplayFor(modelItem => item.Description)
+                    <br />
+
+                    @Html.DisplayNameFor(model => model.Event[0].Place) :  @Html.DisplayFor(modelItem => item.Place)
+                    <br />
+                    @Html.DisplayNameFor(model => model.Event[0].Adress) : @Html.DisplayFor(modelItem => item.Adress)
+                    <br />
+
+                    @Html.DisplayNameFor(model => model.Event[0].Date) : @Html.DisplayFor(modelItem => item.Date)
+                    <br />
+
+                    @Html.DisplayNameFor(model => model.Event[0].SpotsAvailable) :  @Html.DisplayFor(modelItem => item.SpotsAvailable)
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    <br />
+    <br />
+    i++;
+}
+
 
