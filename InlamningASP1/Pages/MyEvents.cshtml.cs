@@ -12,9 +12,9 @@ namespace InlamningASP1.Pages
 {
     public class MyEventsModel : PageModel
     {
-        private readonly InlamningASP1.Data.EventContext _context;
+        private readonly EventContext _context;
 
-        public MyEventsModel(InlamningASP1.Data.EventContext context)
+        public MyEventsModel(EventContext context)
         {
             _context = context;
         }
@@ -23,7 +23,7 @@ namespace InlamningASP1.Pages
 
         public async Task OnGetAsync()
         {
-            Event = await _context.Event.ToListAsync();
+            Event = await _context.Event.Include(a => a.Organizer).ToListAsync();
         }
     }
 }
