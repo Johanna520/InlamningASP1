@@ -24,6 +24,7 @@ namespace InlamningASP1.Pages
         public async Task OnGetAsync()
         {
             Event = await _context.Event.ToListAsync();
+            
         }
     }
 }
