@@ -11,6 +11,7 @@ namespace InlamningASP1.Models
         public string Name { get; set; }
         public string Title { get; set; }
         public string PhoneNumber { get; set; }
-        public Event Event{ get; set;  } //FK (One)
+        public List<Event> Events { get; set; } // FK (many)
+        
     }
 }

@@ -10,11 +10,11 @@ using InlamningASP1.Models;
 
 namespace InlamningASP1.Pages
 {
-    public class TheEventsModel : PageModel
+    public class MyEventsModel : PageModel
     {
         private readonly InlamningASP1.Data.EventContext _context;
 
-        public TheEventsModel(InlamningASP1.Data.EventContext context)
+        public MyEventsModel(InlamningASP1.Data.EventContext context)
         {
             _context = context;
         }
