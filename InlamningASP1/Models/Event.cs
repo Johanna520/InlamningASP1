@@ -16,5 +16,6 @@ namespace InlamningASP1.Models
         public int SpotsAvailable { get; set; }
         public  List<Attendee> Attendees { get; set; } // FK (many)
         public Organizer Organizer { get; set; } //FK (One)
+  
     }
 }

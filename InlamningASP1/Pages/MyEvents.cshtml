@@ -47,8 +47,10 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Organizer.Name)
             </td>
+          
+          
             <td>
-                <a asp-page="./Delete" asp-route-id="@item.EventId">Delete</a>
+                <a asp-page="./Delete" asp-route-id="">Delete</a>
             </td>
         </tr>
 }

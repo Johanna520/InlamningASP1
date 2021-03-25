@@ -39,16 +39,18 @@ namespace InlamningASP1.Pages
         }
         [BindProperty]
         public Event newEvents { get; set; }
-        public async Task<IActionResult> OnPostAsync()
+        public async Task<IActionResult> OnPostAsync(int? id)
         {
-            newEvents.Organizer = await _context.Organizer.FirstOrDefaultAsync();
-            
+      
+
+            newEvents.Organizer = await _context.Organizer.FirstOrDefaultAsync(m => m.OrganizerId == id);
+
 
             await _context.AddAsync(newEvents);
             await _context.SaveChangesAsync();
-            Event = await _context.Event.FirstOrDefaultAsync();
 
-            return RedirectToPage();
+            Event = await _context.Event.FirstOrDefaultAsync(m => m.EventId == id);
+            return Page();
         }
     }
 }
