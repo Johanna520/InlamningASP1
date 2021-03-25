@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using InlamningASP1.Data;
 using InlamningASP1.Models;
+using System.Diagnostics;
 
 namespace InlamningASP1.Pages
 {
@@ -18,7 +19,7 @@ namespace InlamningASP1.Pages
         {
             _context = context;
         }
-
+     
         public Event Event { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -35,6 +36,19 @@ namespace InlamningASP1.Pages
                 return NotFound();
             }
             return Page();
+        }
+        [BindProperty]
+        public Event newEvents { get; set; }
+        public async Task<IActionResult> OnPostAsync()
+        {
+            newEvents.Organizer = await _context.Organizer.FirstOrDefaultAsync();
+            
+
+            await _context.AddAsync(newEvents);
+            await _context.SaveChangesAsync();
+            Event = await _context.Event.FirstOrDefaultAsync();
+
+            return RedirectToPage();
         }
     }
 }

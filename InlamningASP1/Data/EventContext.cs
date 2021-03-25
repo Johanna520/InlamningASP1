@@ -30,7 +30,7 @@ namespace InlamningASP1.Data
             this.RemoveRange(this.Organizer);
             this.RemoveRange(this.Attendee);
 
-            //Organizer.AddRange(new List<Organizer>()
+          
             var Organizer = new Organizer[]
             {
                 new Organizer() { Name="Live Nation", Title="Concert", PhoneNumber="0812568743" },
@@ -38,17 +38,12 @@ namespace InlamningASP1.Data
                 new Organizer() { Name="PGL Esports SRL", Title="E-sport", PhoneNumber="054686445" },
                 new Organizer() { Name="GAIS", Title="Soccer", PhoneNumber="256032154" }
             };
-       
 
-
-
-           // Attendee.AddRange(new List<Attendee>()
              var Attendee = new Attendee[]
              {
                 new Attendee() { Name="Johanna", Email="johanna@gmail.com", PhoneNumber="0765411644" }
              };
-
-                   //Event.AddRange(new List<Event>()
+   
                    var Event = new Event[]
             {
                 new Event() { Title="Alicia Keys", Description="Music", Place="Ericsson Globe", Adress="Stockholm", Date="20210615",  SpotsAvailable=15, Organizer=Organizer[0] },
@@ -57,7 +52,6 @@ namespace InlamningASP1.Data
                    new Event() { Title="GAIS - Öster IF", Description="Soccer", Place="Ullevi", Adress="Gothenburg", Date="20210504",  SpotsAvailable=27, Organizer=Organizer[3]},
                     new Event() { Title="Iron Maiden", Description="Music", Place="Ullevi", Adress="Gothenburg", Date="20210703",  SpotsAvailable=5, Organizer=Organizer[0]}
             };
-
 
             this.Attendee.AddRange(Attendee);
             this.Organizer.AddRange(Organizer);
