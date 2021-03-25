@@ -44,10 +44,9 @@ namespace InlamningASP1.Data
 
            // Attendee.AddRange(new List<Attendee>()
              var Attendee = new Attendee[]
-
-            {
+             {
                 new Attendee() { Name="Johanna", Email="johanna@gmail.com", PhoneNumber="0765411644" }
-            };
+             };
 
                    //Event.AddRange(new List<Event>()
                    var Event = new Event[]
