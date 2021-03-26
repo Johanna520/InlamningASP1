@@ -18,7 +18,9 @@ namespace InlamningASP1.Data
         public void Seed()
         {
             this.Database.EnsureCreated();
-            if (this.Event.Any())
+            if (this.Event.Any() ||
+                this.Attendee.Any() ||
+                this.Organizer.Any())
             {
                 return;
             }

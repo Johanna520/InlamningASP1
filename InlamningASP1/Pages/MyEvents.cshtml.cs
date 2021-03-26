@@ -19,11 +19,13 @@ namespace InlamningASP1.Pages
             _context = context;
         }
 
-        public IList<Event> Event { get;set; }
+        public Attendee Attendee { get;set; }
 
         public async Task OnGetAsync()
         {
-            Event = await _context.Event.Include(a => a.Organizer).ToListAsync();
+            Attendee = await _context.Attendee.Where(a =>a.AttendeeId == 1)
+            .Include(e => e.Events)
+             .FirstOrDefaultAsync();
         }
     }
 }

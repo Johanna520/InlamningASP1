@@ -41,15 +41,25 @@ namespace InlamningASP1.Pages
         public Event newEvents { get; set; }
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-      
-
-            newEvents.Organizer = await _context.Organizer.FirstOrDefaultAsync(m => m.OrganizerId == id);
-
-
-            await _context.AddAsync(newEvents);
-            await _context.SaveChangesAsync();
+            if (id == null)
+            {
+                return NotFound();
+            }
+            var attendee = await _context.Attendee.Where(a => a.AttendeeId == 1)
+             .Include(e => e.Events)
+             .FirstOrDefaultAsync();
 
             Event = await _context.Event.FirstOrDefaultAsync(m => m.EventId == id);
+            attendee.Events.Add(Event);
+
+            await _context.SaveChangesAsync();
+            //newEvents.Organizer = await _context.Organizer.FirstOrDefaultAsync(m => m.OrganizerId == id);
+
+
+       
+          
+
+           
             return Page();
         }
     }
