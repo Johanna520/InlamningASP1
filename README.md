@@ -31,7 +31,7 @@ För att definiera ett request pipline användes Middleware komponenter. Dessa k
 Man väljer och använder endast de middleware komponenter som är nödvändiga i din applikation, detta för att öka prestandan i applikationen. 
 Det är även viktigt att veta vilken ordning metoderna kallas på. 
 Man kan se middleware som en trappa, där man börjar uppifrån där ett http request kommer in från klienten (webHost) för att sedan ta sig nedåt
-när vi når rätt Endpoints för ändamålet. Därefter går vi upp för trappan igen - Razer Page / MVC skapar ett html svar som skickas upp genom middleware stegen
+när vi når rätt Endpoints för ändamålet. Därefter går vi upp för trappan igen - Razor skapar ett html svar som skickas upp genom middleware stegen
 tills en http 200 OK genereras och skickas tillbaka till klienten.
 
 
@@ -39,16 +39,16 @@ tills en http 200 OK genereras och skickas tillbaka till klienten.
 
  #### wwwroot
  
-wwwroot är web root foldern, denna folder innehåller statiska filer. Här finns exempelvis javascirpt, html, images och css-kod etc. Att filerna är statiska betyder att de inte behöver skapas/förändras av en server innan de skickas ut till klienten.
+wwwroot är web root foldern, denna folder innehåller statiska filer. Här finns exempelvis javascript, html, images och css-kod etc. Att filerna är statiska betyder att de inte behöver skapas/förändras av en server innan de skickas ut till klienten.
 
  
  #### Program.cs
-Här börjat allt, i Main, när applikationen exekverar. 
+Här börjat programmet, i Main, när applikationen exekverar. 
 Här skapar vi en host (WebHost), .Build(),  för applikationen.  
 Därefter kallas .Run(), genom att kalla på .Run() fortsätter mainprocessen att arbeta inuti WebHost. 
 
-CreatDefualtBuilder metoden skapar en instans av WebHostBuilder och skapar Kestrel. Kestrel är webservern som inkluderar och aktiverar ASP.NET Core projekts temlpates. 
-Här kallas även ConfigureAppConfiguration() för att bland annat ladda konfiguering från appsettings.json filer.
+CreatDefualtBuilder metoden skapar en instans av WebHostBuilder och skapar Kestrel. Kestrel är webservern som inkluderar och aktiverar ASP.NET Core projekts templates. 
+Här kallas även ConfigureAppConfiguration(), för att bland annat ladda konfiguering från appsettings.json filer.
 
           
  #### Razor språket 
@@ -62,10 +62,10 @@ Razor finns både i MVC och Razor Pages.
 ### Razor Pages
 #### Content Page
 
-Hör ihop med de filnamn som slutar på .cshtml. Content Page är alltså en sida med razor kod. 
+Hör ihop med de filnamn som slutar på .cshtml. Content Page är en sida med razor kod. 
 Här är all data klar och används för att presentera sidan. 
-Här sköter vi det visuella, UI
-Content Page har razor kod och har oftast en refereras kallad för Model som pekar på Page Model objektet. 
+Här sköter vi det visuella, UI.
+Content Page har razor kod och har oftast en referans, kallad för Model, som pekar på Page Model objektet. 
 
 #### Page Model 
 
@@ -85,4 +85,4 @@ View är en Razor .htmlcs fil.
 View används för att visa data, detta genom att använda sig av objekt från model klass. 
 
 #### Controller 
-Controller hantera inkommande url begäran. Controller är en klass som innehåller public metoder som kallas för Action metoder. Dessa hantera inkommande browserbegäran, hämtar nödvändig model data och returnerar lämplig respons. Varje controllers klassnamn måste sluta med ”Controller” samt vara finnas  i Controller foldern. 
+Controller hantera inkommande url begäran. Controller är en klass som innehåller public metoder som kallas för Action metoder. Dessa hantera inkommande browserbegäran, hämtar nödvändig model data och returnerar lämplig respons. Varje controllers klassnamn måste sluta med ”Controller” samt finnas i Controller foldern. 
