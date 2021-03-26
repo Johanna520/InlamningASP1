@@ -52,6 +52,8 @@ namespace InlamningASP1.Pages
             await _context.SaveChangesAsync();
 
             return Page();
+
+           
         }
     }
 }

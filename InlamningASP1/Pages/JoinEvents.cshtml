@@ -50,7 +50,7 @@
     </dl>
 </div>
 <div>
-
+    <a asp-page="./TheEvents">Back to Events</a>
 </div>
 <!--
 @if(Request.Method == "post")
@@ -61,8 +61,7 @@
 }*/-->
 
 <form method="post" action="">
-    <input asp-for="newEvents.EventId" type="submit" value="Join event" />
+    <input asp-for="newEvents.EventId" onclick="return confirm('You have joined this event')" type="submit" value="Join event" />
+    
 
 </form>
-
-
