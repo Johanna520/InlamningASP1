@@ -12,9 +12,9 @@ namespace InlamningASP1.Pages
 {
     public class TheEventsModel : PageModel
     {
-        private readonly InlamningASP1.Data.EventContext _context;
+        private readonly EventContext _context;
 
-        public TheEventsModel(InlamningASP1.Data.EventContext context)
+        public TheEventsModel(EventContext context)
         {
             _context = context;
         }

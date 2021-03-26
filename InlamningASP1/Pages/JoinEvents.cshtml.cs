@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using InlamningASP1.Data;
+using InlamningASP1.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using InlamningASP1.Data;
-using InlamningASP1.Models;
-using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace InlamningASP1.Pages
 {
@@ -19,7 +16,7 @@ namespace InlamningASP1.Pages
         {
             _context = context;
         }
-     
+
         public Event Event { get; set; }
 
         public async Task<IActionResult> OnGetAsync(int? id)
@@ -53,13 +50,7 @@ namespace InlamningASP1.Pages
             attendee.Events.Add(Event);
 
             await _context.SaveChangesAsync();
-            //newEvents.Organizer = await _context.Organizer.FirstOrDefaultAsync(m => m.OrganizerId == id);
 
-
-       
-          
-
-           
             return Page();
         }
     }

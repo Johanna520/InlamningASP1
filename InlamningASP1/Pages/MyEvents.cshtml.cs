@@ -26,6 +26,9 @@ namespace InlamningASP1.Pages
             Attendee = await _context.Attendee.Where(a =>a.AttendeeId == 1)
             .Include(e => e.Events)
              .FirstOrDefaultAsync();
+           
         }
+    
     }
+ 
 }

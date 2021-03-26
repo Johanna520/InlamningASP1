@@ -5,25 +5,38 @@
     ViewData["Title"] = "MyEvents";
 }
 
-<h1>MyEvents</h1>
+<h1>My Events</h1>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
+<hr />
+
 <table class="table">
     <thead>
-
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Place</th>
+        </tr>
     </thead>
+
     <tbody>
         @foreach (var item in Model.Attendee.Events)
         {
-         
+
             <tr>
                 <td>@Html.DisplayFor(modelItem => item.Title)</td>
+
                 <td>@Html.DisplayFor(modelItem => item.Date)</td>
+
                 <td>@Html.DisplayFor(modelItem => item.Place)</td>
+
+                <td>
+               
+                </td>
             </tr>
-     
+
         }
     </tbody>
 </table>
+
+   

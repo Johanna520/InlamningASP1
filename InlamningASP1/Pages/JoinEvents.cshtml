@@ -8,7 +8,7 @@
 <h1>Join Events</h1>
 
 <div>
-    <h4>Event</h4>
+
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
@@ -50,18 +50,19 @@
     </dl>
 </div>
 <div>
-  
-    <a asp-page="./TheEvents">Back to Events</a>
-</div>
 
+</div>
+<!--
+@if(Request.Method == "post")
+{
+    <h4> You joind the event</h4>
+    <a asp-page="./TheEvents">Back to Events</a>
+    <a asp-page="./MyEvents">Joined Events</a>
+}*/-->
 
 <form method="post" action="">
-
-   <!-- <a asp-page="./JoinEvents" asp-route-id="@Model.Event.EventId">
-        <input asp-for="newEvents.EventId" type="submit" value="Join event" />
-    </a>-->
-
     <input asp-for="newEvents.EventId" type="submit" value="Join event" />
 
-
 </form>
+
+
