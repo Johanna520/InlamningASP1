@@ -52,16 +52,8 @@
 <div>
     <a asp-page="./TheEvents">Back to Events</a>
 </div>
-<!--
-@if(Request.Method == "post")
-{
-    <h4> You joind the event</h4>
-    <a asp-page="./TheEvents">Back to Events</a>
-    <a asp-page="./MyEvents">Joined Events</a>
-}*/-->
+
 
 <form method="post" action="">
     <input asp-for="newEvents.EventId" onclick="return confirm('You have joined this event')" type="submit" value="Join event" />
-    
-
 </form>
